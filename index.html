@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPA Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SGPA Calculator</h1>
+        <form id="sgpaForm">
+            <div class="input-group">
+                <label for="course">Select Course:</label>
+                <select id="course" class="grade-input">
+                    <option value="btechCSE">B.Tech CSE</option>
+                    <option value="bca">BCA</option>
+                    <option value="btechBioeng">B.Tech Bioengineering</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="semester">Select Semester:</label>
+                <select id="semester" class="grade-input">
+                    <option value="sem1">Semester 1</option>
+                    <option value="sem2">Semester 2</option>
+                    <option value="sem3">Semester 3</option>
+                </select>
+            </div>
+
+            <div id="subjectInputs"></div>
+
+            <button type="button" id="calculateButton">Calculate SGPA</button>
+        </form>
+        <h2 id="result"></h2>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
