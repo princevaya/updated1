@@ -80,17 +80,33 @@ function updateSubjectInputs() {
         label.htmlFor = subject.id;
         label.textContent = `${subject.name} (${subject.credits} credits):`;
 
-        const input = document.createElement("input");
-        input.type = "text";
-        input.id = subject.id;
-        input.classList.add("grade-input");
-        input.placeholder = "Enter grade";
+        const select = document.createElement("select");
+        select.id = subject.id;
+        select.classList.add("grade-input");
+
+        // Add a blank placeholder option
+        const placeholderOption = document.createElement("option");
+        placeholderOption.value = "";
+        placeholderOption.textContent = "Select grade";
+        placeholderOption.disabled = true;
+        placeholderOption.selected = true;
+        select.appendChild(placeholderOption);
+
+        // Populate dropdown with grade options
+        Object.keys(gradeMapping).forEach((grade) => {
+            const option = document.createElement("option");
+            option.value = grade;
+            option.textContent = grade;
+            select.appendChild(option);
+        });
 
         inputGroup.appendChild(label);
-        inputGroup.appendChild(input);
+        inputGroup.appendChild(select);
         subjectInputs.appendChild(inputGroup);
     });
 }
+
+
 
 function calculateSGPA() {
     const selectedCourse = courseSelect.value;
